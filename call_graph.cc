@@ -529,7 +529,7 @@ void CallGraph::DeleteVertices(Address from, Address to) {
 
   Graph newGraph(boost::edges_are_unsorted_multi_pass, edges.begin(),
                  edges.end(), properties.begin(), temp_addresses.size());
-  std::swap(graph_, newGraph);
+  graph_ = newGraph;
 
   int j = 0;
   for (auto [it, end] = boost::vertices(graph_); it != end; ++it, ++j) {
